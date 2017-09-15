@@ -11,7 +11,7 @@ To get the Tweedr API set up, you know the drill.
 
 ### GET `/api/tweeds`
 
-Returns all tweeds in database.
+Returns all tweeds in database.fdsfasdfsa
 
 ```json
 {
