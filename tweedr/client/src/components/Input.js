@@ -12,6 +12,7 @@ const InputForm = (props) => {
        onChange={props.handleChange}
        />
       <br/>
+
       <button type="submit" value="submit">Tweet</button>
     </form>
     );
