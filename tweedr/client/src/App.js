@@ -67,6 +67,7 @@ class App extends Component {
   render() {
     return (
       <div className="container">
+        <div className="logo"></div>
         <div className="title">TWEEDR</div>
         <div className="subTitle">What Ya Thinking? ha?</div>
         <TweedrFeed data={this.state.data} />

@@ -19,6 +19,92 @@
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+body {
+  font-family: "Dancing Script", cursive;
+  color: dimgray;
+  background-color: floralwhite;
+}
+
+.container {
+  width: 100%;
+}
+
+.logo {
+  background-image: url(https://pbs.twimg.com/media/BjrVun0IcAAJZrE.png);
+  background-size: 104%;
+  height: 100px;
+  width: 100px;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+}
+
+.title {
+  font-weight: bolder;
+  font-size: 35px;
+  display: flex;
+  justify-content: center;
+}
+
+.subTitle {
+  margin-top: 20px;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.userInput {
+  display: flex;
+
+  justify-content: center;
+}
+.userInput input {
+  width: 35%;
+  height: 25px;
+  font-size: 17px;
+  padding: 3px;
+  border-radius: 5px;
+}
+
+.userInput button {
+  height: 35px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s;
+  background-color: floralwhite;
+  color: dimgray;
+  font-weight: bold;
+  letter-spacing: 0px;
+}
+.userInput button:hover {
+  background-color: #0084b4;
+  color: #fff;
+  cursor: pointer;
+  letter-spacing: 2px;
+}
+
+.tweeds {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.tweed {
+  background-color: snow;
+  width: 100%;
+  height: 50px;
+  margin: 10px;
+  border: 1px dotted #0084b4;
+  border-radius: 5px;
+  line-height: 50px;
+  padding-left: 5px;
+  display: flex;
+  justify-content: space-between;
 }
