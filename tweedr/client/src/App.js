@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TweedrFeed from './components/TweedrFeed';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import axios from "axios";
 import './App.css';
 import Input from './components/Input';
@@ -22,9 +22,9 @@ class App extends Component {
   componentDidMount() {
     axios('/api/tweeds')
     .then(res => {
-      console.log(res.data.tweeds);
+      console.log(res.data.data.tweeds);
         this.setState({
-            data: res.data.tweeds
+            data: res.data.data.tweeds
         })
     })
   }
@@ -45,17 +45,17 @@ class App extends Component {
 
       axios.post('/api/tweeds' ,  {
         tweed_text: this.state.inputField,
-        tweed_time: this.state.time
+        tweed_time: this.state.timeField
       }).then(res => {
-        if(res.data.quote.id !== undefined) {
+        if(res.data.data.tweeds.id !== undefined) {
             const newTweed = {
-              tweed_text: res.data.quote.tweed_text,
-              tweed_time: res.data.quote.tweed_time
+              tweed_text: res.data.data.tweeds.tweed_text,
+              tweed_time: res.data.data.tweeds.tweed_time
           }
 
           this.setState(prevState => {
             return {
-              quotes: prevState.quotes.concat(newQuote)
+              tweeds: prevState.tweeds.concat(newTweed)
             };
           });
         }
@@ -67,7 +67,7 @@ class App extends Component {
     return (
       <div className="App">
 
-        <TweedrFeed data />
+        <TweedrFeed data={this.state.data} />
       </div>
     );
   }
