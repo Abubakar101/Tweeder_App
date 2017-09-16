@@ -4,7 +4,7 @@ import Tweed from './Tweed';
 class TweedrFeed extends Component {
   render() {
     return (
-      <div >
+      <div className="tweeds">
       { this.props.data.map( tweed => {
         return <Tweed tweed={tweed} key={tweed.id} />
       })}
