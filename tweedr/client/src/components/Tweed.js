@@ -10,8 +10,8 @@ class Tweed extends Component {
     console.log('Q rendering');
     return (
       <div className="tweed">
-        <h2>{this.props.tweed.tweed_text} </h2>
-        <h3> <span>{this.props.tweed.tweed_time}</span> </h3>
+        {this.props.tweed.tweed_text}
+         <span>{this.props.tweed.tweed_time}</span>
       </div>
     )
   }
