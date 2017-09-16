@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import TweedrFeed from './TweedrFeed';
 import logo from './logo.svg';
 import './App.css';
 
