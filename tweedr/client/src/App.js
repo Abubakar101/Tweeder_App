@@ -69,10 +69,6 @@ class App extends Component {
       <div className="container">
         <div className="title">TWEEDR</div>
         <div className="subTitle">What Ya Thinking? ha?</div>
-        <Input
-          inputListener={this.inputListener}
-          submitListener={this.handleSubmitListener}
-        />
         <TweedrFeed data={this.state.data} />
       </div>
     );
