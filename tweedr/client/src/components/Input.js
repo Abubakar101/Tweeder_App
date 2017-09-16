@@ -9,7 +9,7 @@ const InputFrom = (props) => {
        value={props.inputField}
        name="tweed_text"
        placeholder="Tweet Here"
-       onchange={props.handleChange}
+       onChange={props.handleChange}
        />
       <br/>
       <button type="submit" value="submit">Tweet</button>
