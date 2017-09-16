@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-const InputFrom = (props) => {
+const InputForm = (props) => {
   return(
     <form className="inputForm"
       onSubmit={props.handleSubmit}
