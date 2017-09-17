@@ -24,7 +24,7 @@ body {
   font-size: 35px;
   display: flex;
   justify-content: center;
-  font-family: 'Dancing Script', cursive;
+  font-family: "Dancing Script", cursive;
 }
 
 .subTitle {
@@ -32,11 +32,11 @@ body {
   font-size: 30px;
   display: flex;
   justify-content: center;
+  font-family: "Dancing Script", cursive;
 }
 
 .userInput {
   display: flex;
-
   justify-content: center;
 }
 .userInput input {
