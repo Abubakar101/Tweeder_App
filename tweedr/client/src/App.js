@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import TweedrFeed from "./components/TweedrFeed";
-// import logo from './logo.svg';
 import axios from "axios";
 import "./App.css";
-import Input from "./components/Input";
+import InputForm from "./components/Input";
 
 class App extends Component {
   constructor(props) {
@@ -11,7 +10,7 @@ class App extends Component {
 
     this.state = {
       data: [],
-      inputField: 0,
+      inputField: "",
       timeField: ""
     };
 
@@ -29,6 +28,7 @@ class App extends Component {
   }
 
   handleInputListener(event) {
+    console.log(event.target.value, "handleInputListener");
     this.setState({
       inputField: event.target.value
     });
@@ -38,27 +38,17 @@ class App extends Component {
     event.preventDefault();
     event.target.content = "";
 
-    this.setState({
-      timeField: event.targer.time
-    });
-
     axios
       .post("/api/tweeds", {
-        tweed_text: this.state.inputField,
-        tweed_time: this.state.timeField
+        tweed: this.state.inputField
       })
       .then(res => {
-        if (res.data.data.tweeds.id !== undefined) {
+        console.log(res, "then handlesubmit");
+        console.log(this.state.inputField, "InputField");
+        if (res.data.data.tweed.id !== undefined) {
           const newTweed = {
-            tweed_text: res.data.data.tweeds.tweed_text,
-            tweed_time: res.data.data.tweeds.tweed_time
+            tweed: res.data.data.tweed.tweed_text
           };
-
-          this.setState(prevState => {
-            return {
-              tweeds: prevState.tweeds.concat(newTweed)
-            };
-          });
         }
       })
       .catch(err => console.log(err));
@@ -67,9 +57,14 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <div className="logo"></div>
+        <div className="logo" />
         <div className="title">TWEEDR</div>
         <div className="subTitle">What Ya Thinking? ha?</div>
+        <InputForm
+          inputField={this.state.inputField}
+          handleChange={this.handleInputListener}
+          handleSubmit={this.handleSubmitListener}
+        />
         <TweedrFeed data={this.state.data} />
       </div>
     );

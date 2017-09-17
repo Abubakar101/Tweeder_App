@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon server.js",
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "debugger": "DEBUG=*:* npm run dev"
   },
   "keywords": [
@@ -21,7 +21,9 @@
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.3",
     "express": "^4.15.2",
+    "moment": "^2.18.1",
     "morgan": "^1.8.1",
+    "nodemon": "^1.12.1",
     "pg-promise": "^5.6.8"
   },
   "devDependencies": {

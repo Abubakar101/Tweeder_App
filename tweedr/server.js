@@ -5,7 +5,10 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
-
+const moment = require('moment');
+require("moment/min/locales.min");
+moment.locale('cs');
+console.log(moment.locale());
 /* setting up port & listen */
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, function() {

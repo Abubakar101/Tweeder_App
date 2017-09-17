@@ -30,6 +30,7 @@ tweedsController.show = (req, res) => {
 };
 
 tweedsController.create = (req, res) => {
+  console.log(req.body, 'kjjj')
   Tweed.create({
       tweed: req.body.tweed,
       time: Date.now(),
