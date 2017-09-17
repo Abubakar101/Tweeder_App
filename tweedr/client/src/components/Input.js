@@ -1,22 +1,25 @@
-import React from 'react';
+import React, { Component } from 'react';
+// import React from "react";
 
-const InputForm = (props) => {
-    // console.log(props)
-  return(
-    <form className="userInput"
-      onSubmit={props.handleSubmit}
-      >
-      <input
-       type="text"
-       value={props.inputField}
-       name="tweed_text"
-       placeholder="Tweet Here"
-       onChange={props.handleChange}
-       />
-      <br/>
+class InputForm extends Component {
+  render() {
+    // console.log(this.props)
+    return (
+      <form className="userInput" onSubmit={this.props.handleSubmit}>
+        <input
+          type="text"
+          value={this.props.inputField}
+          name="tweed_text"
+          placeholder="Tweet Here"
+          onChange={this.props.handleChange}
+        />
+        <br />
 
-      <button type="submit" value="submit">tweeeed in</button>
-    </form>
+        <button type="submit" value="submit">
+          tweeeed in
+        </button>
+      </form>
     );
+  }
 }
 export default InputForm;

@@ -7,7 +7,7 @@ class Tweed extends Component {
   }
 
   render() {
-    // console.log('Q rendering');
+    console.log('Q rendering');
     return (
       <div className="tweed">
         {this.props.tweed.tweed_text}

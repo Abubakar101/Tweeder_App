@@ -5,8 +5,8 @@ import "./App.css";
 import InputForm from "./components/Input";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
       data: [],
@@ -28,14 +28,13 @@ class App extends Component {
   }
 
   handleInputListener(event) {
-    console.log(event.target.value, "handleInputListener");
     this.setState({
       inputField: event.target.value
     });
   }
 
   handleSubmitListener(event) {
-    event.preventDefault();
+    // event.preventDefault();
     event.target.content = "";
 
     axios
@@ -43,12 +42,18 @@ class App extends Component {
         tweed: this.state.inputField
       })
       .then(res => {
-        console.log(res, "then handlesubmit");
-        console.log(this.state.inputField, "InputField");
         if (res.data.data.tweed.id !== undefined) {
+          console.log(res.data.data.tweed.id)
           const newTweed = {
-            tweed: res.data.data.tweed.tweed_text
+            tweed_text: res.data.data.tweed.tweed_text,
+            id: res.data.data.tweed.id
           };
+          this.setState(prevState => {
+            console.log(prevState)
+            return {
+              data: prevState.data.concat(newTweed)
+            };
+          });
         }
       })
       .catch(err => console.log(err));
@@ -65,7 +70,9 @@ class App extends Component {
           handleChange={this.handleInputListener}
           handleSubmit={this.handleSubmitListener}
         />
-        <TweedrFeed data={this.state.data} />
+        
+          <TweedrFeed data={this.state.data} />
+      
       </div>
     );
   }
