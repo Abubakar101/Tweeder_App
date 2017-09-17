@@ -1,17 +1,16 @@
 import React, { Component } from "react";
 import TweedrFeed from "./components/TweedrFeed";
-// import logo from './logo.svg';
 import axios from "axios";
 import "./App.css";
-import Input from "./components/Input";
+import InputForm from "./components/Input";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
       data: [],
-      inputField: 0,
+      inputField: "",
       timeField: ""
     };
 
@@ -35,28 +34,24 @@ class App extends Component {
   }
 
   handleSubmitListener(event) {
-    event.preventDefault();
+    // event.preventDefault();
     event.target.content = "";
-
-    this.setState({
-      timeField: event.targer.time
-    });
 
     axios
       .post("/api/tweeds", {
-        tweed_text: this.state.inputField,
-        tweed_time: this.state.timeField
+        tweed: this.state.inputField
       })
       .then(res => {
-        if (res.data.data.tweeds.id !== undefined) {
+        if (res.data.data.tweed.id !== undefined) {
+          console.log(res.data.data.tweed.id)
           const newTweed = {
-            tweed_text: res.data.data.tweeds.tweed_text,
-            tweed_time: res.data.data.tweeds.tweed_time
+            tweed_text: res.data.data.tweed.tweed_text,
+            id: res.data.data.tweed.id
           };
-
           this.setState(prevState => {
+            console.log(prevState)
             return {
-              tweeds: prevState.tweeds.concat(newTweed)
+              data: prevState.data.concat(newTweed)
             };
           });
         }
@@ -67,10 +62,17 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <div className="logo"></div>
+        <div className="logo" />
         <div className="title">TWEEDR</div>
         <div className="subTitle">What Ya Thinking? ha?</div>
-        <TweedrFeed data={this.state.data} />
+        <InputForm
+          inputField={this.state.inputField}
+          handleChange={this.handleInputListener}
+          handleSubmit={this.handleSubmitListener}
+        />
+        
+          <TweedrFeed data={this.state.data} />
+      
       </div>
     );
   }

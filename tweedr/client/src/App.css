@@ -1,34 +1,7 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
 
 body {
-  font-family: "Dancing Script", cursive;
+  font-family: 'Dancing Script', cursive;
   color: dimgray;
   background-color: floralwhite;
 }
@@ -39,7 +12,7 @@ body {
 
 .logo {
   background-image: url(https://pbs.twimg.com/media/BjrVun0IcAAJZrE.png);
-  background-size: 104%;
+  background-size: 110%;
   height: 100px;
   width: 100px;
   background-position: center;
@@ -107,4 +80,5 @@ body {
   padding-left: 5px;
   display: flex;
   justify-content: space-between;
+  font-size: 20px;
 }

@@ -4,7 +4,7 @@ const Tweed = {};
 
 Tweed.findAll = () => {
   return db.query(
-    `SELECT * FROM tweeds`
+    `SELECT * FROM tweeds ORDER BY id desc`
   );
 };
 
