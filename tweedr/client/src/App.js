@@ -1,70 +1,76 @@
-import React, { Component } from 'react';
-import TweedrFeed from './TweedrFeed';
-import logo from './logo.svg';
-import './App.css';
-import Input from './components/Input';
+import React, { Component } from "react";
+import TweedrFeed from "./components/TweedrFeed";
+import axios from "axios";
+import "./App.css";
+import InputForm from "./components/Input";
 
 class App extends Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super();
 
     this.state = {
       data: [],
-      inputField: 0,
-      timeField: ''
-    }
+      inputField: "",
+      timeField: ""
+    };
 
-    this.handleInputListener = this.handleInputListener.bind(this)
-    this.handleSubmitListener = this.handleSubmitListener.bind(this)
+    this.handleInputListener = this.handleInputListener.bind(this);
+    this.handleSubmitListener = this.handleSubmitListener.bind(this);
   }
 
   componentDidMount() {
-    axios('localhost:3001/api/tweeds')
-    .then(res => {
-        this.setState({
-            data: res.data.tweeds
-        })
-    })
+    axios("/api/tweeds").then(res => {
+      console.log(res.data.data.tweeds);
+      this.setState({
+        data: res.data.data.tweeds
+      });
+    });
   }
 
   handleInputListener(event) {
     this.setState({
-      inputField: event.target.value,
-    })
+      inputField: event.target.value
+    });
   }
 
   handleSubmitListener(event) {
-      event.preventDefault();
-      event.target.content='';
+    // event.preventDefault();
+    event.target.content = "";
 
-      this.setState({
-        timeField: event.targer.time
+    axios
+      .post("/api/tweeds", {
+        tweed: this.state.inputField
       })
-
-      axios.post('localhost:3001/api/tweeds' , (req, res) => {
-        tweed_text: this.state.inputField,
-        tweed_time: this.state.time
-      }).then(res => {
-        if(res.data.quote.id !== undefined) {
-            const newTweed = {
-              tweed_text: res.data.quote.tweed_text,
-              tweed_time: res.data.quote.tweed_time
-          }
-
-        this.setState(prevState => {
-          return {
-            data: prevState.data.concat(newTweed),
-          }
-        })
-      }
-    }).catch(err => console.log(err);)
+      .then(res => {
+        if (res.data.data.tweed.id !== undefined) {
+          console.log(res.data.data.tweed.id)
+          const newTweed = {
+            tweed_text: res.data.data.tweed.tweed_text,
+            id: res.data.data.tweed.id
+          };
+          this.setState(prevState => {
+            console.log(prevState)
+            return {
+              data: prevState.data.concat(newTweed)
+            };
+          });
+        }
+      })
+      .catch(err => console.log(err));
   }
 
   render() {
     return (
-      <div className="App">
-
-        <TweedrFeed data={}>
+      <div className="container">
+        <div className="logo" />
+        <div className="title">TWEEDR</div>
+        <div className="subTitle">What Ya Thinking? ha?</div>
+        <InputForm
+          inputField={this.state.inputField}
+          handleChange={this.handleInputListener}
+          handleSubmit={this.handleSubmitListener}
+        />
+          <TweedrFeed data={this.state.data} />
       </div>
     );
   }

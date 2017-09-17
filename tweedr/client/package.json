@@ -4,7 +4,10 @@
   "private": true,
   "dependencies": {
     "axios": "^0.16.2",
+<<<<<<< HEAD
     "eslint": "^4.7.0",
+=======
+>>>>>>> c5c627cd91f1cea713c59c7be5c4499c01638d44
     "react": "^15.5.4",
     "react-dom": "^15.5.4"
   },
@@ -17,7 +20,13 @@
     "client": "node start-client.js",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+<<<<<<< HEAD
     "eject": "react-scripts eject",
     "proxy": "http://localhost:3001/"
   }
+=======
+    "eject": "react-scripts eject"
+  },
+  "proxy": "http://localhost:3001/"
+>>>>>>> c5c627cd91f1cea713c59c7be5c4499c01638d44
 }
