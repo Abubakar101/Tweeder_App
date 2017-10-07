@@ -1,13 +1,5 @@
-# HOMEWORK: Tweedr!!
+Let's make a cool new app called ***TWEEDR***!! 
 
-Let's make a cool new app called ***TWEEDR***!! Not Twitter, geez... 🙄
-
-An Express backend has already been provided for you, because we love you all very much. You will just need to create a React frontend for it. (You shouldn't need to modify anything in the Express backend, except to connect the React frontend. The model, controllers, etc. are all set up already.)
-
-You will continue working in your group for this mini project.
-
-You know the drill: 
-* nominate the Git Tzar 
     * IMPORTANT STEPS FOR THE TZAR:
         * `clone` THIS repo directly onto your machine
         * Create an empty repository on your GitHub account online
@@ -16,7 +8,7 @@ You know the drill:
         * The `git add and commit and push`
         * Voila, you can see this repo on your own github account online
 * All the teammates should clone YOUR newly created repo
-* Finally, just like yesterday, Create a separate branch for each feature 
+* Finally, Create a separate branch for each feature 
 * Push to the feature branch
 * Create a Pull request and assign each memeber of the team to approve it
 * After the request has been approved by everyone, merge it!
@@ -55,11 +47,3 @@ Your React/Express app should:
     - `Tweed`: Holds one individual tweed
     - Any other components you see fit!
 
-## 🚀 Your homework submission should include:
-
-- ONE issue ticket created on this repo.
-- In the title of your ticket, include the names of ALL team members
-- A link to your project
-- Completion, comfort, wins, losses, questions... you know the drill.
-
-## This homework is due 🚨 11PM ON SUNDAY NIGHT 🚨
