@@ -1,4 +1,4 @@
-\c tweedr_dev
+
 
 CREATE TABLE IF NOT EXISTS tweeds (
   id BIGSERIAL PRIMARY KEY,
