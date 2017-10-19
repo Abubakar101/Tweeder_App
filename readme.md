@@ -1,49 +1,23 @@
-Let's make a cool new app called ***TWEEDR***!! 
+# Project Overview
 
-    * IMPORTANT STEPS FOR THE TZAR:
-        * `clone` THIS repo directly onto your machine
-        * Create an empty repository on your GitHub account online
-        * Copy the the url of your empty repository using ssh 
-        * Using command `git remote set-url origin <paste-the-url-here>`
-        * The `git add and commit and push`
-        * Voila, you can see this repo on your own github account online
-* All the teammates should clone YOUR newly created repo
-* Finally, Create a separate branch for each feature 
-* Push to the feature branch
-* Create a Pull request and assign each memeber of the team to approve it
-* After the request has been approved by everyone, merge it!
- 
+## Project Description
+
+It is an app similar to the idea of twitter.com and it allows the user to insert their posts - plus, the time of post is inserted automatically with each post. It has a combination of both front and back end. It was built with the group of 4, using Node.js, React, CSS, JSX.
+
+
 ### Wireframe
 
 ![tweedr](./assets/tweedr.png)
 
-### Before you start
+### Landing Page
+![tweedr](./assets/tweedrLanding.png)
 
-Let's start practicing project workflow best practices **OPTIONAL**.
-
-- Wireframe the mockup into the components you want to have
-- Write out your user stories
-- Make a project board with the code tasks from your user stories
-
-You will need to set up the Tweedr database.
-- Create a database named `tweedr_dev`.
-- Run the migration & seed files in `tweedr/db`.
-- **Read the readme** in the `tweedr` directory -- it will give you all you need to know about the endpoints you'll be using.
-
-### Working with an Express server and a react app
-
-- [Read this tutorial on connecting an express server and React in development environment](https://www.fullstackreact.com/articles/using-create-react-app-with-a-server/)
-
-## 🚀 Completion looks like:
-
-Your React/Express app should:
-
-- Take an input of a Tweed
-- Render all the Tweeds from the database into the browser
-- Accomplish this with at least four components, possibly more:
-    - `App`: holds calls to the database
-    - `Input`: will take a text input and allow it to be submitted into the database
-    - `TweedrFeed`: Holds `Tweed` components, which reflect the information in the database
-    - `Tweed`: Holds one individual tweed
-    - Any other components you see fit!
-
+### Initialization
+- Clone and Install it
+- Go to "Tweeder_App/tweedr/db/migrations" and type `psql` and press enter?
+- Type `CREATE DATABASE tweedr_dev` to create database and then type `\q` to exit.
+- Create the table by typing `psql -f migration.sql` inside the "./migration" folder
+- Go back to "Tweeder_App/tweedr" and type `npm install` to install all the dependences for node.js.
+- Then do same in "Tweeder_App/tweedr" directory for REACT.
+- Type `npm start` inside "Tweeder_App/tweedr" to start the node.js server and inside "Tweeder_App/tweedr/client" to start the React.js server.
+- Node.js server is on "http://localhost:3001/" and React.js server is on http://localhost:3000/
