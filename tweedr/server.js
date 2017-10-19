@@ -34,9 +34,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // });
 
 // Express only serves static assets in production
-if (process.env.NODE_ENV === 'production') {
+(process.env.NODE_ENV === 'production')
   app.use(express.static('client/build'));
-}
+
 /* tweeds API route */
 const tweedRoutes = require("./routes/tweedroutes");
 app.use("/api/tweeds", tweedRoutes);
