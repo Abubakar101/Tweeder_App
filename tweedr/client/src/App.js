@@ -61,16 +61,18 @@ class App extends Component {
   }
 
   // Delete Tweed
-  deleteTweed(event) {
-    console.log("del", event);
+  deleteTweed(id) {
+    location.reload();
+    console.log("del", id);
 
     axios({
       method: "delete",
       url: "http://localhost:3000/api/tweeds",
-      data: event
+      data: { id }
     })
       .then(res => {
         console.log("DELETE Request SENT");
+        
       })
       .catch(err => console.log(err));
   }

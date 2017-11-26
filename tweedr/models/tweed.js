@@ -27,7 +27,8 @@ Tweed.create = tweed => {
 
 Tweed.destroy = id => {
   console.log("ID - - ->", id)
-  db.none(`DELETE FROM records WHERE id = $/id/`, id);
+  db.none(`DELETE FROM tweeds WHERE id = $1`, id);
 };
+
 
 module.exports = Tweed;

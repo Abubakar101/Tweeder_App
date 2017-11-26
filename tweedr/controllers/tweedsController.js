@@ -46,14 +46,7 @@ tweedsController.create = (req, res) => {
 };
 
 tweedsController.destroy = (req, res) => {
-  console.log("Controller Destory", res.params)
-  Tweed.destroy(res.params)
-    .then(() => {
-      console.log(res.params);
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(400).json({ message: "400", err });
-    });
+  console.log("Controller Destory", req.body.id);
+  Tweed.destroy(req.body.id);
 };
 module.exports = tweedsController;
