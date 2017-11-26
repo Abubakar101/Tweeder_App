@@ -1,4 +1,4 @@
-\c tweedr_dev
+
 
 INSERT INTO tweeds (tweed_text, tweed_time) VALUES 
   ('Hello World!', '03/07/1992 11:00pm'),
