@@ -44,4 +44,16 @@ tweedsController.create = (req, res) => {
       res.status(400).json({ message: "400", err });
     });
 };
+
+tweedsController.destroy = (req, res) => {
+  console.log("Controller Destory", res.params)
+  Tweed.destroy(res.params)
+    .then(() => {
+      console.log(res.params);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(400).json({ message: "400", err });
+    });
+};
 module.exports = tweedsController;

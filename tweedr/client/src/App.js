@@ -16,6 +16,7 @@ class App extends Component {
 
     this.handleInputListener = this.handleInputListener.bind(this);
     this.handleSubmitListener = this.handleSubmitListener.bind(this);
+    this.deleteTweed = this.deleteTweed.bind(this);
   }
 
   componentDidMount() {
@@ -43,18 +44,33 @@ class App extends Component {
       })
       .then(res => {
         if (res.data.data.tweed.id !== undefined) {
-          console.log(res.data.data.tweed.id)
+          console.log(res.data.data.tweed.id);
           const newTweed = {
             tweed_text: res.data.data.tweed.tweed_text,
             id: res.data.data.tweed.id
           };
           this.setState(prevState => {
-            console.log(prevState)
+            console.log(prevState);
             return {
               data: prevState.data.concat(newTweed)
             };
           });
         }
+      })
+      .catch(err => console.log(err));
+  }
+
+  // Delete Tweed
+  deleteTweed(event) {
+    console.log("del", event);
+
+    axios({
+      method: "delete",
+      url: "http://localhost:3000/api/tweeds",
+      data: event
+    })
+      .then(res => {
+        console.log("DELETE Request SENT");
       })
       .catch(err => console.log(err));
   }
@@ -70,9 +86,8 @@ class App extends Component {
           handleChange={this.handleInputListener}
           handleSubmit={this.handleSubmitListener}
         />
-        
-          <TweedrFeed data={this.state.data} />
-      
+
+        <TweedrFeed data={this.state.data} destroy={this.deleteTweed} />
       </div>
     );
   }

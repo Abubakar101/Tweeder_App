@@ -7,7 +7,7 @@ class TweedrFeed extends Component {
       <div className="tweeds">
       { this.props.data.map( tweed => {
         {console.log(tweed)}
-        return <Tweed tweed={tweed} key={tweed.id} />
+        return <Tweed tweed={tweed} key={tweed.id} destroy={this.props.destroy}/>
       })}
     </div>
     );

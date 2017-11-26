@@ -1,23 +1,21 @@
-const db = require('../db/config');
+const db = require("../db/config");
 
 const Tweed = {};
 
 Tweed.findAll = () => {
-  return db.query(
-    `SELECT * FROM tweeds ORDER BY id desc`
-  );
+  return db.query(`SELECT * FROM tweeds ORDER BY id desc`);
 };
 
-Tweed.findById = (id) => {
+Tweed.findById = id => {
   return db.oneOrNone(
     `
     SELECT * FROM tweeds
-    WHERE id = $1`, 
+    WHERE id = $1`,
     [id]
   );
 };
 
-Tweed.create = (tweed) => {
+Tweed.create = tweed => {
   return db.one(
     `
     INSERT INTO tweeds (tweed_text, tweed_time)
@@ -25,6 +23,11 @@ Tweed.create = (tweed) => {
     RETURNING *`,
     [tweed.tweed, tweed.time]
   );
+};
+
+Tweed.destroy = id => {
+  console.log("ID - - ->", id)
+  db.none(`DELETE FROM records WHERE id = $/id/`, id);
 };
 
 module.exports = Tweed;
