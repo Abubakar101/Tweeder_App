@@ -10,8 +10,15 @@ class Tweed extends Component {
     console.log('Q rendering', this.props.tweed.id);
     return (
       <div className="tweed">
-        {this.props.tweed.tweed_text}
-         <span>{this.props.tweed.tweed_time}</span>
+      <div className="innerTweed">
+      <div className="">
+          {this.props.tweed.tweed_text}
+          </div>
+          <div className="">
+         {this.props.tweed.tweed_time}
+
+         </div>
+         </div>
          <Destroy destroy={this.props.destroy} id={this.props.tweed.id}/>
       </div>
     )

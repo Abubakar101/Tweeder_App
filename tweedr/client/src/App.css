@@ -82,3 +82,9 @@ body {
   justify-content: space-between;
   font-size: 20px;
 }
+
+.innerTweed{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
